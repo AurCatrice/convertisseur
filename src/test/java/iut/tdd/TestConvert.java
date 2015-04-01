@@ -131,6 +131,16 @@ public class TestConvert{
 		Assert.assertEquals(expected,myConvert.num2text(input));
 	}
 	@Test
+	public void test_num2text_neufcentnonantesix(){
+		String input="996"; String expected="neuf-cent-nonante-six";
+		Assert.assertEquals(expected,myConvert.num2text(input));
+	}
+	@Test
+	public void test_num2text_centvingtetun(){
+		String input="121"; String expected="cent-vingt-et-un";
+		Assert.assertEquals(expected,myConvert.num2text(input));
+	}
+	@Test
 	public void test_text2num_0(){
 		String input="zéro"; String expected="0";
 		Assert.assertEquals(expected,myConvert.text2num(input));

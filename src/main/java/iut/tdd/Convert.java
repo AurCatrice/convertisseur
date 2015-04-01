@@ -35,7 +35,30 @@ public class Convert {
 		diz.put("8", "quatre-vingt");
 		diz.put("9", "nonante");
 	}
-		
+	static HashMap<String,String> cen= new HashMap<String,String>();
+	static{
+		cen.put("1", "cent");
+		cen.put("2", "deux-cent");
+		cen.put("3", "trois-cent");
+		cen.put("4", "quatre-cent");
+		cen.put("5", "cinq-cent");
+		cen.put("6", "six-cent");
+		cen.put("7", "sept-cent");
+		cen.put("8", "huit-cent");
+		cen.put("9", "neuf-cent");
+	}
+	static HashMap<String,String> mil= new HashMap<String,String>();
+	static{
+		mil.put("1", "mille");
+		mil.put("2", "deux-mille");
+		mil.put("3", "trois-mille");
+		mil.put("4", "quatre-mille");
+		mil.put("5", "cinq-mille");
+		mil.put("6", "six-mille");
+		mil.put("7", "sept-mille");
+		mil.put("8", "huit-mille");
+		mil.put("9", "neuf-mille");
+	}
 	public static String num2text(String input){
 		if ( input.length()<=2 && nb.containsKey(input)){
 			return nb.get(input);
@@ -43,8 +66,17 @@ public class Convert {
 		else if(input.length()>1 && input.length()<3 && nb.containsKey(input.substring(0,1)) && input.substring(1,2).equals("1")){
 			return diz.get(input.substring(0,1))+"-et-"+nb.get(input.substring(1,2));
 		}
-		else if(input.length()>1 && input.length()<3 && nb.containsKey(input.substring(0,1)) && nb.containsKey(input.substring(1,2))){
+		else if(input.length()>1 && input.length()<3 && diz.containsKey(input.substring(0,1)) && nb.containsKey(input.substring(1,2))){
 			return diz.get(input.substring(0,1))+'-'+nb.get(input.substring(1,2));
+		}
+		else if(input.length()>2 && input.length()<4 && cen.containsKey(input.substring(0,1)) && diz.containsKey(input.substring(1,2)) && input.substring(2,3).equals("1")){
+			return cen.get(input.substring(0,1))+'-'+diz.get(input.substring(1,2))+"-et-"+nb.get(input.substring(2,3));
+		}
+		else if(input.length()>2 && input.length()<4 && cen.containsKey(input.substring(0,1)) && diz.containsKey(input.substring(1,2)) && nb.containsKey(input.substring(2,3))){
+			return cen.get(input.substring(0,1))+'-'+diz.get(input.substring(1,2))+'-'+nb.get(input.substring(2,3));
+		}
+		else if(input.length()>3 && input.length()<5 && mil.containsKey(input.substring(0,1)) && cen.containsKey(input.substring(1,2)) && diz.containsKey(input.substring(2,3)) && nb.containsKey(input.substring(3,4))){
+			return mil.get(input.substring(0,1))+'-'+cen.get(input.substring(1,2))+'-'+diz.get(input.substring(2,3))+'-'+nb.get(input.substring(2,3));
 		}
 		return null;
 	}
