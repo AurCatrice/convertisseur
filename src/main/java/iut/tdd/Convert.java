@@ -21,6 +21,7 @@ public class Convert {
 		nb.put("14", "quatorze");
 		nb.put("15", "quinze");
 		nb.put("16", "seize");
+		nb.put("20", "vingt");
 	}
 	static HashMap<String,String> diz= new HashMap<String,String>();
 	static{
@@ -39,8 +40,11 @@ public class Convert {
 		if ( input.length()<=2 && nb.containsKey(input)){
 			return nb.get(input);
 		}
+		else if(input.length()>1 && input.length()<3 && nb.containsKey(input.substring(0,1)) && input.substring(1,2).equals("1")){
+			return diz.get(input.substring(0,1))+"-et-"+nb.get(input.substring(1,2));
+		}
 		else if(input.length()>1 && input.length()<3 && nb.containsKey(input.substring(0,1)) && nb.containsKey(input.substring(1,2))){
-			return diz.get(input)+'-'+nb.get(input);
+			return diz.get(input.substring(0,1))+'-'+nb.get(input.substring(1,2));
 		}
 		return null;
 	}

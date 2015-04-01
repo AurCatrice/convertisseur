@@ -111,6 +111,26 @@ public class TestConvert{
 		Assert.assertEquals(expected,myConvert.num2text(input));
 	}
 	@Test
+	public void test_num2text_vingtetun(){
+		String input="21"; String expected="vingt-et-un";
+		Assert.assertEquals(expected,myConvert.num2text(input));
+	}
+	@Test
+	public void test_num2text_vingtdeux(){
+		String input="22"; String expected="vingt-deux";
+		Assert.assertEquals(expected,myConvert.num2text(input));
+	}
+	@Test
+	public void test_num2text_quaranteetun(){
+		String input="41"; String expected="quarante-et-un";
+		Assert.assertEquals(expected,myConvert.num2text(input));
+	}
+	@Test
+	public void test_num2text_nonantesix(){
+		String input="96"; String expected="nonante-six";
+		Assert.assertEquals(expected,myConvert.num2text(input));
+	}
+	@Test
 	public void test_text2num_0(){
 		String input="zéro"; String expected="0";
 		Assert.assertEquals(expected,myConvert.text2num(input));
