@@ -22,12 +22,29 @@ public class Convert {
 		nb.put("15", "quinze");
 		nb.put("16", "seize");
 	}
+	static HashMap<String,String> diz= new HashMap<String,String>();
+	static{
+		diz.put("1", "dix");
+		diz.put("2", "vingt");
+		diz.put("3", "trente");
+		diz.put("4", "quarante");
+		diz.put("5", "cinquante");
+		diz.put("6", "soixante");
+		diz.put("7", "septante");
+		diz.put("8", "quatre-vingt");
+		diz.put("9", "nonante");
+	}
+		
 	public static String num2text(String input){
-		if (nb.containsKey(input)){
+		if ( input.length()<=2 && nb.containsKey(input)){
 			return nb.get(input);
+		}
+		else if(input.length()>1 && input.length()<3 && nb.containsKey(input.substring(0,1)) && nb.containsKey(input.substring(1,2))){
+			return diz.get(input)+'-'+nb.get(input);
 		}
 		return null;
 	}
+	
 
 	public static String text2num(String input) {
 		if (input.equals("zéro")) {
@@ -61,10 +78,5 @@ public class Convert {
 			return "9";
 		}
 		return null;
-	}
-
-	
-	String toString(int i){
-		return i+"";
 	}
 }

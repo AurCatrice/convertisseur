@@ -85,7 +85,31 @@ public class TestConvert{
 		String input="15"; String expected="quinze";
 		Assert.assertEquals(expected,myConvert.num2text(input));
 	}
-	
+	@Test
+	public void test_num2text_seize(){
+		String input="16"; String expected="seize";
+		Assert.assertEquals(expected,myConvert.num2text(input));
+	}
+	@Test
+	public void test_num2text_dixsept(){
+		String input="17"; String expected="dix-sept";
+		Assert.assertEquals(expected,myConvert.num2text(input));
+	}
+	@Test
+	public void test_num2text_dixhuit(){
+		String input="18"; String expected="dix-huit";
+		Assert.assertEquals(expected,myConvert.num2text(input));
+	}
+	@Test
+	public void test_num2text_dixneuf(){
+		String input="19"; String expected="dix-neuf";
+		Assert.assertEquals(expected,myConvert.num2text(input));
+	}
+	@Test
+	public void test_num2text_vingt(){
+		String input="20"; String expected="vingt";
+		Assert.assertEquals(expected,myConvert.num2text(input));
+	}
 	@Test
 	public void test_text2num_0(){
 		String input="zéro"; String expected="0";
